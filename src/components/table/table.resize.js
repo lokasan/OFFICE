@@ -36,7 +36,7 @@ export function resizeHandler($root, event) {
       $parent.css({
         width: value + 'px'
       })
-      this.$root.findAll(`[data-col="${cellName}"`)
+      $root.findAll(`[data-col="${cellName}"`)
           .forEach(el => el.style.width = value + 'px')
     } else {
       $parent.css({
