@@ -1,15 +1,24 @@
 class Dom {
   constructor(selector) {
-    this.$el = typeof selector === 'string'
-      ? document.querySelector(selector)
-      : selector
+    this.$el = typeof selector === 'string' ?
+      document.querySelector(selector) :
+      selector
+  }
+  text(text) {
+    if (typeof text === 'string') {
+      this.$el.textContent = text
+      return this
+    }
+    return this.$el.textContent.trim()
   }
   html(html) {
     if (typeof html === 'string') {
       this.$el.innerHTML = html
       return this
     }
-
+    if (this.$el.tagName.toLowerCase() === 'input') {
+      return this.$el.value.trim()
+    }
     return this.$el.outerHTML.trim()
   }
   clear() {
@@ -46,12 +55,37 @@ class Dom {
   findAll(selector) {
     return this.$el.querySelectorAll(selector)
   }
+  find(selector) {
+    return $(this.$el.querySelector(selector))
+  }
+  addClass(className) {
+    this.$el.classList.add(className)
+    return this
+  }
+  removeClass(className) {
+    this.$el.classList.remove(className)
+    return this
+  }
+  focus() {
+    this.$el.focus()
+    return this
+  }
   css(styles = {}) {
     Object
         .keys(styles)
         .forEach(key => {
           this.$el.style[key] = styles[key]
         })
+  }
+  id(parse) {
+    if (parse) {
+      const parsed = this.id().split(':')
+      return {
+        row: +parsed[0],
+        col: +parsed[1]
+      }
+    }
+    return this.data.id
   }
   get data() {
     return this.$el.dataset

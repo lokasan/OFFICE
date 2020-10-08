@@ -1,3 +1,4 @@
+/*eslint linebreak-style: ["error", "windows"]*/
 {
   "parser": "babel-eslint",
   "env": {
@@ -10,6 +11,7 @@
     "arrow-parens": "off",
     "comma-dangle": "off",
     "require-jsdoc": "off",
+    "linebreak-style": ["error", "windows"]
   },
   "extends": [
     "eslint:recommended",
