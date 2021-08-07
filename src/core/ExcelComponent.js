@@ -8,7 +8,6 @@ export class ExcelComponent extends DomListener {
     this.subscribe = options.subscribe || []
     this.store = options.store
     this.unsubsribers = []
-    console.log(options)
     this.prepare()
   }
   // Настраиваем компонент до init
