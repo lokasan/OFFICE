@@ -31,7 +31,6 @@ function toCell(state, row) {
       ...defaultStyles,
       ...state.stylesState[id]
     })
-    console.log(styles, 'HELPERES')
     return `
         <div 
             class="cell" 

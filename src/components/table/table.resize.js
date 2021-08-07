@@ -44,7 +44,6 @@ export function resizeHandler($root, event) {
           height: value + 'px'
         })
       }
-      console.log(value)
       resolve({
         value,
         type: event.target.dataset.resize,
